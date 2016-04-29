@@ -14,8 +14,15 @@ Everything is containid withing the namespace AQ to avoid conflicts with other l
 For now I've just released the CIObject class, which i created for working with some codeigniter classes but that it's way more
 useful than that.
 
-This class has some static methods that allow any class extending this one to get it's public members filled from the accessible
-ones of the class you feed the methods. You can also get an array of typed objects filled with values from some other objects.
+This class has some static methods that allow any class extending this one to get it's public members filled from the accessible ones of the class you feed the methods. You can also get an array of typed objects filled with values from some other objects.
+
+**Available methods:**
+
+| Method name                             | Method description                                                    |
+|-----------------------------------------|-----------------------------------------------------------------------|
+| static *fromSTDArray*($array)           | Creates an array of objects from the class from an array of objects.  |
+| static *fromSTDObject(stdClass $object) | -- Creates an instance of the class from the given object.            |
+| private *_post_init_process()           |  -- A method executing after setting up the object.                   |
 
 The usage is pretty simple, you extend from it and call the inherited methods from your new created class. Example:
   ```php
