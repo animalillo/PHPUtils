@@ -6,7 +6,7 @@ and that i think might be of some interest for other developers out there.
 
 ## Usage
 
-Everything is containid withing the namespace AQ to avoid conflicts with other libraries.
+Everything is contained withing the namespace AQ to avoid conflicts with other libraries.
 
 ### Available classes
 ---------------------
@@ -21,8 +21,8 @@ This class has some static methods that allow any class extending this one to ge
 | Method name                             | Method description                                                    |
 |-----------------------------------------|-----------------------------------------------------------------------|
 | static *fromSTDArray*($array)           | Creates an array of objects from the class from an array of objects.  |
-| static *fromSTDObject(stdClass $object) | -- Creates an instance of the class from the given object.            |
-| private *_post_init_process()           |  -- A method executing after setting up the object.                   |
+| static *fromSTDObject(stdClass $object) | Creates an instance of the class from the given object.               |
+| private *_post_init_process()           | A method executing after setting up the object.                       |
 
 The usage is pretty simple, you extend from it and call the inherited methods from your new created class. Example:
   ```php
