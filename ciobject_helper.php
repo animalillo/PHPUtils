@@ -28,11 +28,14 @@ namespace AQ {
         
         /**
          * Creates an instance of the class, setting all it's public properties
-         * to the ones set on the std object (json_decode or codeigniter result)
+         * to the ones set on the object (json_decode or codeigniter result)
          * @param \stdClass $object
          * @return \self    A new instance of the object
+         * @throws Exception In case an unexpected type is found
          */
-        static function fromSTDObject(\stdClass $object){
+        static function fromObject($object){
+            if (!is_object($object)) throw new Exception ("Expected an object, got: " . gettype ($object));
+            
             $self = static::class;
             $reflect = new \ReflectionClass($self);
             $props = $reflect->getProperties(\ReflectionProperty::IS_PUBLIC);
