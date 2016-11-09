@@ -21,7 +21,7 @@ namespace AQ {
         static function fromSTDArray($array){
             $ret = [];
             foreach ($array as $value) {
-                $ret[] = static::fromSTDObject($value);
+                $ret[] = static::fromObject($value);
             }
             return $ret;
         }
@@ -34,12 +34,11 @@ namespace AQ {
          * @throws Exception In case an unexpected type is found
          */
         static function fromObject($object){
-            if (!is_object($object)) throw new Exception ("Expected an object, got: " . gettype ($object));
+            if (!is_object($object)) throw new \Exception ("Expected an object, got: " . gettype ($object));
             
             $self = static::class;
             $reflect = new \ReflectionClass($self);
             $props = $reflect->getProperties(\ReflectionProperty::IS_PUBLIC);
-
             $ret = new $self();
             foreach ($props as $prop) {
                 if (isset($object->{$prop->name})){
@@ -53,7 +52,7 @@ namespace AQ {
         /**
          * Executed after creating the object using the fromSTDObject method
          */
-        private function _post_init_process(){
+        protected function _post_init_process(){
             
         }
     }
