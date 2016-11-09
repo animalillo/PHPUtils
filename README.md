@@ -21,8 +21,8 @@ This class has some static methods that allow any class extending this one to ge
 | Method name                             | Method description                                                    |
 |-----------------------------------------|-----------------------------------------------------------------------|
 | static *fromSTDArray*($array)           | Creates an array of objects from the class from an array of objects.  |
-| static *fromSTDObject(stdClass $object) | Creates an instance of the class from the given object.               |
-| private *_post_init_process()           | A method executing after setting up the object.                       |
+| static *fromObject($object)             | Creates an instance of the class from the given object.               |
+| protected *_post_init_process()         | A method executing after setting up the object.                       |
 
 The usage is pretty simple, you extend from it and call the inherited methods from your new created class. Example:
   ```php
@@ -33,7 +33,7 @@ The usage is pretty simple, you extend from it and call the inherited methods fr
   
   $tmp = json_decode('{"my_property" : "this is my property content", "hello" : "world"}');
   
-  $my_class_instance = MyClass::fromSTDObject($tmp);
+  $my_class_instance = MyClass::fromObject($tmp);
   ```
 This simple example would create a fully typed object from some json data, and would ignore any value we are not interested into.
 
